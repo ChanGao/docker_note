@@ -1,0 +1,59 @@
+docker相关的笔记
+
+1、Docker基础
+镜像：Image 想当于系统，本体
+容器：container 是镜像启动的一个副本
+
+2、安装过程
+参考网上的安装教程，对centos的系统有要求，系统太老，安装可以，但是无法启动
+a、yum 镜像源
+b、  showduplicates
+c、 yum install
+
+启动docker 服务：systemctl start/stop docker client/server
+查看 docker的版本：docker version
+
+3、docker退出容器：exit 或者ctrl+D（这两种方式退出容器后，进程可能会死掉）
+        非常重要：若使用ctrl+P+Q，退出容器后，可以保证容器内的进程服务不会被杀掉
+
+docker start/stop/restart ContainerID  启动容器或停止容器（容器已经存在的情况）
+
+启动容器（容器已存在）：docker run -itd --name （name后加容器名字，自定义）   d参数表示后台启动
+连接容器，进入容器内，方法1：docker attach + containerID 进入后台运行的容器，这种退出，会停止所有进程（少使用）
+        方法2：docker exec -it + 容器名 + bin/bash  退出容器终端，exit之后，容器不会停止
+
+docker常用命令
+    docker image 查看镜像
+    docker ps -a 查看所有容器
+    docker ps 查看正在运行的容器
+    docker rm + containerID 根据ID删除容器
+    docker rmi + 镜像名 删除
+
+dockerfile目录，是打包目录的起点，
+执行dockerfile
+docker build -t mymirror：latest .  (最后有个点，latest其实是默认的，可指定其他版本)
+
+
+根据镜像启动容器
+docker run -itd --name container名 mirror镜像名 /bin/bash  （启动一个新的容器）
+
+将容器打包成镜像
+docker commit -a “作者” -m “备注” containerID morrior：v1（需要打包成的镜像名，自行命名）
+
+修改镜像的名称
+docker tag 镜像ID 镜像名（重命名）：latest
+注：grep -r py*/‘py’*（查看文件夹下跟py相关的字段）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
