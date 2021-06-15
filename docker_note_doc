@@ -23,7 +23,7 @@ docker start/stop/restart ContainerID  启动容器或停止容器（容器已�
         方法2：docker exec -it + 容器名 + bin/bash  退出容器终端，exit之后，容器不会停止
 
 docker常用命令
-    docker image 查看镜像
+    docker images 查看镜像
     docker ps -a 查看所有容器
     docker ps 查看正在运行的容器
     docker rm + containerID 根据ID删除容器
@@ -43,6 +43,30 @@ docker commit -a “作者” -m “备注” containerID morrior：v1（需要�
 修改镜像的名称
 docker tag 镜像ID 镜像名（重命名）：latest
 注：grep -r py*/‘py’*（查看文件夹下跟py相关的字段）
+
+
+###############
+gitlab 初始化笔记
+
+1、git init
+2、git add .
+3、git commit -m "message"
+4、第一次创建工程时需要
+git remote add origin 远程链接（SSH）
+5、git pull  origin master --allow-unrelated-histories(备选)
+6、git push origin master
+
+
+########################33
+创建SSH-KEY
+
+1、若无SSH-KEY
+进入setting  ---   SSH-KEY
+
+a、ssh-keygen ... -t rsa .....260140@gree.com.cn(重要)
+git bash on window版块
+b、cat ... /id_rsa(此处需要改变，根据实际情况)  ...clip
+c、粘贴到SSH-KEY设置的key框中
 
 
 
